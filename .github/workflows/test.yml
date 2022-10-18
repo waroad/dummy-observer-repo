@@ -1,23 +1,22 @@
-name: File Sync
-
+name: test
 on:
   push:
-    branches:
-      - master
-  schedule:
-    - cron: 0 0 * * *
+    branches: [ main ]
   workflow_dispatch:
 jobs:
-  file_sync:
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
-      - name: Fetching Local Repository
-        uses: actions/checkout@master
-      - name: File Sync
-        uses: kbrashears5/github-action-file-sync@v2.0.0
+      - name: Checkout files
+        uses: actions/checkout@v2
         with:
-          REPOSITORIES: |
-            waroad/dummy-source-repo@master
-          FILES: |
-            data.txt
-          TOKEN: ${{ secrets.ACTIONS }}
+          repository: waroad/dummy-observer-repo
+      - name: Sync files with dst-octocat-repsotiory!
+        uses: denis-tingajkin/sync-files@main
+        with:
+          git-author-email: 'waroad@knu.ac.kr'
+          git-author-name: 'waroad'
+          sync-repository: waroad/dummy-source-repo
+          allow-files-pattern: '2.txt'
+          sync-branch-name: 'master'
