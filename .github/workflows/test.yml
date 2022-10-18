@@ -19,5 +19,5 @@ jobs:
           git-author-email: 'waroad@knu.ac.kr'
           git-author-name: 'waroad'
           sync-repository: waroad/dummy-source-repo
-          allow-files-pattern: '.txt'
+          allow-files-pattern: 'test.txt'
           sync-branch-name: 'master'
