@@ -13,7 +13,7 @@ jobs:
         with:
           repository: waroad/dummy-observer-repo
       - name: Sync files with dst-octocat-repsotiory!
-        uses: waroad/dummy-observer-repo@main
+        uses: waroad/sync-files@main
         with:
           git-author-email: 'waroad@knu.ac.kr'
           git-author-name: 'waroad'
