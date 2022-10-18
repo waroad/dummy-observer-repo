@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: poll-github-repo/action@v1
         with:
-          repo-to-sync: poll-github-repo/dummy-source-repo
+          repo-to-sync: waroad/dummy-source-repo
           path-to-sync: data.txt
           cache-path: .last-sync
           tracking-issue-label: upstream-data-txt
           tracking-issue-title: "Update on {{ path }}: {{ sha-short }}"
           tracking-issue-body: |
-            New commit in poll-github-repo/dummy-source-repo:
+            New commit in waroad/dummy-source-repo:
 
             **{{ message }}** [link]({{ url }})
           token: ${{ secrets.GITHUB_TOKEN }}
