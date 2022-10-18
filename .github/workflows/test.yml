@@ -22,4 +22,4 @@ jobs:
 
             **{{ message }}** [link]({{ url }})
           token: ${{ secrets.GITHUB_TOKEN }}
-          yes-create-issues: true
+          yes-create-issues: false
