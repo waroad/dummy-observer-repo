@@ -12,11 +12,11 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v2
         with:
-          repository: waroad/dummy-source-repo
+          repository: waroad/dummy-observer-repo
       - name: Sync files with dst-octocat-repsotiory!
         uses: denis-tingajkin/sync-files@main
         with:
           git-author-email: 'waroad@knu.ac.kr'
           git-author-name: 'waroad'
-          src-repository: waroad/dummy-observer-repo
+          src-repository: waroad/dummy-source-repo
           allow-files-pattern: '.txt'
