@@ -9,17 +9,15 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: poll-github-repo/action@v1
+      - name: Checkout files
+        uses: actions/checkout@v2
         with:
-          repo-to-sync: waroad/dummy-source-repo
-          path-to-sync: data.txt
-          cache-path: .last-sync
-          tracking-issue-label: upstream-data-txt
-          tracking-issue-title: "Update on {{ path }}: {{ sha-short }}"
-          tracking-issue-body: |
-            New commit in waroad/dummy-source-repo:
-
-            **{{ message }}** [link]({{ url }})
-          token: ${{ secrets.GITHUB_TOKEN }}
-          yes-create-issues: false
+          repository: waroad/dummy-source-repo
+          token: ${{ secrets.octocat_token }}
+      - name: Sync files with dst-octocat-repsotiory!
+        uses: denis-tingajkin/sync-files@main
+        with:
+          git-author-email: 'waroad@knu.ac.kr'
+          git-author-name: 'waroad'
+          src-repository: octocat/src-repsotiory
+          allow-files-pattern: '.MD'
